@@ -22,17 +22,19 @@
 <section class="card-container">
   {% for rock in rocks %}
     <div class="card">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/coco.png' %}" 
-            alt="A skater boy cat"
-          >
+      <a href="/rocks/{% url 'rocks_detail' rock.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img 
+              src="{% static 'images/coco.png' %}" 
+              alt="A skater boy cat"
+            >
+          </div>
+          <h2 class="card-title">{{ rock.color }}</h2>
+          <h2>{{ rock.description }}</h2>
+          <h2>{{ rock.location }}</h2>
         </div>
-        <h2 class="card-title">{{ rock.color }}</h2>
-        <h2>{{ rock.description }}</h2>
-        <h2>{{ rock.location }}</h2>
-      </div>
+      </a>
     </div>
   {% endfor %}
 </section>
