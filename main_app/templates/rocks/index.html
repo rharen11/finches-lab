@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/rocks/rock-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Cat List</h1>
+  <img src="{% static 'images/coco.png' %}" alt="A cool cat" />
+  <img src="{% static 'images/coco.png' %}" alt="A happy cat" />
+  <img src="{% static 'images/coco.png' %}" alt="A cat in a teacup" />
+  <img src="{% static 'images/coco.png' %}" alt="A cat in a box" />
+</section>
+
+<section class="card-container">
+  {% for rock in rocks %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/coco.png' %}" 
+            alt="A skater boy cat"
+          >
+        </div>
+        <h2 class="card-title">{{ rock.color }}</h2>
+        <h2>{{ rock.description }}</h2>
+        <h2>{{ rock.location }}</h2>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

@@ -11,7 +11,8 @@
     type="image/png"
     href="{% static 'images/coco.png' %}"
   >
-  <title>Finch Collector</title>
+  <link rel="icon" type="image" href="{% static 'images/coco.png' %}">
+  <title>Rock Collector</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% block head %}
   {% endblock %}
@@ -21,14 +22,16 @@
     <div class="header-logo-container">
       <a href="/">
         <img 
-          src="{% static 'images/header-logo.svg' %}"
+          src="{% static 'images/coco.png' %}"
           alt="The Cat Collector Logo"
+          width= 80px
         >
       </a>
     </div>
     <nav>
       <ul>
         <li><a href="/about">About</a></li>
+        <li><a href="/rocks">Rocks</a></li>
       </ul>
     </nav>
   </header>
