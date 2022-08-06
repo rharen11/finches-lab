@@ -30,8 +30,9 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/rocks">Rocks</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'rocks_index' %}">Rocks</a></li>
+        <li><a href="{% url 'rocks_create' %}">Add a Rock</a></li>
       </ul>
     </nav>
   </header>

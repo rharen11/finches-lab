@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Rock(models.Model):
   type = models.CharField(max_length=100)
@@ -8,3 +9,7 @@ class Rock(models.Model):
 
   def __str__(self):
     return self.type
+
+  def get_absolute_url(self):
+      return reverse("rocks_detail", kwargs={"rock_id": self.id})
+  

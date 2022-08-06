@@ -22,7 +22,7 @@
 <section class="card-container">
   {% for rock in rocks %}
     <div class="card">
-      <a href="/rocks/{% url 'rocks_detail' rock.id %}">
+      <a href="{% url 'rocks_detail' rock.id %}">
         <div class="card-content">
           <div class="card-img-container">
             <img 

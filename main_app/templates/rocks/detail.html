@@ -23,6 +23,10 @@
     <h2>{{ rock.color }}</h2>
     <h2>{{ rock.description }}</h2>
     <h2> {{ rock.location }}</h2>
+    <div class='cat-actions'>
+    <a href="{% url 'rocks_update' rock.id %}" class='btn warn'>Edit</a>
+    <a href="{% url 'rocks_delete' rock.id %}" class='btn warn'>Delete</a>
+    </div>
   </div>
 </section>
 
