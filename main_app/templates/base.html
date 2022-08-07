@@ -30,12 +30,18 @@
     </div>
     <nav>
       <ul>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'rocks_index' %}">Rocks</a></li>
-        <li><a href="{% url 'rocks_create' %}">Add a Rock</a></li>
-        <li><a href="{% url 'paintings_create' %}">Add a Painting</a></li>
-        <li><a href="{% url 'paintings_index' %}">All Paintings</a></li>
-
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'rocks_index' %}">Rocks</a></li>
+          <li><a href="{% url 'rocks_create' %}">Add a Rock</a></li>
+          <li><a href="{% url 'paintings_create' %}">Add a Painting</a></li>
+          <li><a href="{% url 'paintings_index' %}">All Paintings</a></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>

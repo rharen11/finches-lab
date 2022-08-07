@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 DAYS = (
   ('M', 'Monday'),
@@ -11,11 +12,23 @@ DAYS = (
   ('Sun', 'Sunday')
 )
 
+class Painting(models.Model):
+  title = models.CharField(max_length=100)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.title
+  
+  def get_absolute_url(self):
+      return reverse("paintings_detail", kwargs={"pk": self.id})
+
 class Rock(models.Model):
   type = models.CharField(max_length=100)
   color = models.CharField(max_length=50)
   description = models.TextField(max_length=300)
   location = models.CharField(max_length=50)
+  painting = models.ManyToManyField(Painting)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.type
@@ -44,16 +57,6 @@ class Cleaning(models.Model):
 
   # class Meta:
   #   ordering = ['-date']
-
-class Painting(models.Model):
-  title = models.CharField(max_length=100)
-  color = models.CharField(max_length=20)
-
-  def __str__(self):
-    return self.title
-  
-  def get_absolute_url(self):
-      return reverse("paintings_detail", kwargs={"pk": self.id})
   
 
 
