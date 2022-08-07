@@ -12,6 +12,8 @@ urlpatterns = [
   path('rock/<int:rock_id>/add_cleaning/', views.add_cleaning, name='add_cleaning'),
   path('paintings/create/', views.PaintingCreate.as_view(), name='paintings_create'),
   path('paintings/<int:pk>/', views.PaintingDetail.as_view(), name='paintings_detail'),
-  path('paintings/', views.PaintingList.as_view(), name='paintings_index')
+  path('paintings/', views.PaintingList.as_view(), name='paintings_index'),
+  path('paintings/<int:pk>/update/', views.PaintingUpdate.as_view(), name='paintings_update'),
+  path('paintings/<int:pk>/delete/', views.PaintingDelete.as_view(), name='paintings_delete')
 
 ]

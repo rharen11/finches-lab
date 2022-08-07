@@ -49,3 +49,11 @@ class PaintingList(ListView):
 
 class PaintingDetail(DetailView):
   model = Painting
+
+class PaintingUpdate(UpdateView):
+  model = Painting
+  fields = ['title', 'color']
+
+class PaintingDelete(DeleteView):
+  model = Painting
+  success_url = '/paintings/'
