@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Delete Rock?</h1>
+  <img src="{% static 'images/coco.png' %}" alt="A cat using a computer"/>
+</div>
+<h2>Are you sure you want to delete {{ rock.type }}?</h2>
+
+<form action="" method="POST" class="form">
+  {% csrf_token %}
+  <a 
+    href="{% url 'rocks_detail' rock.id %}" 
+    class="btn secondary"
+  >
+    Save My Rock!
+  </a>
+  <button type="submit" class="btn danger">Throw Rock Away!</button>
+</form>
+
+{% endblock %}

@@ -29,5 +29,46 @@
     </div>
   </div>
 </section>
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Rock Cleanings</h2>
+      <img 
+        src="{% static 'images/coco.png' %}" 
+        alt="An ice cream cone cat"
+      />
+    </div>
+    <h3>Add a Cleaning</h3>
+    <form
+      action="{% url 'add_cleaning' rock.id %}"
+      method="post" 
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      {{ cleaning_form.as_p }}
+      <button type="submit" class="btn submit">Add Cleaning</button>
+    </form>
+    <h3>Rock Cleanings</h3>
+    {% if rock.cleaning_set.all.count %}
+      <table>
+        <thead>
+          <tr><th>Month</th><th>Day of the Week</th></tr>
+        </thead>
+        <tbody>
+          {% for cleaning in rock.cleaning_set.all %}
+            <tr>
+              <td>{{cleaning.month}}</td>
+              <td>{{cleaning.get_day_display}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class='subsection-content'>
+        <p>{{rock.type}} has never been cleaned- GROSS</p>
+      </div>
+    {% endif %}
+  </section>
+</div>
 
 {% endblock %}
