@@ -9,6 +9,9 @@ urlpatterns = [
   path('rocks/create/', views.RockCreate.as_view(), name='rocks_create'),
   path('rocks/<int:pk>/delete/', views.RockDelete.as_view(), name='rocks_delete'),
   path('rocks/<int:pk>/update/', views.RockUpdate.as_view(), name='rocks_update'),
-  path('rock/<int:rock_id>/add_cleaning/', views.add_cleaning, name='add_cleaning')
+  path('rock/<int:rock_id>/add_cleaning/', views.add_cleaning, name='add_cleaning'),
+  path('paintings/create/', views.PaintingCreate.as_view(), name='paintings_create'),
+  path('paintings/<int:pk>/', views.PaintingDetail.as_view(), name='paintings_detail'),
+  path('paintings/', views.PaintingList.as_view(), name='paintings_index')
 
 ]

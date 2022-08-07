@@ -23,6 +23,9 @@ class Rock(models.Model):
   def get_absolute_url(self):
       return reverse("rocks_detail", kwargs={"rock_id": self.id})
 
+  # def cleaned_for_year(self):
+  #   return self.cleaning_set.filter(cleaning.count() >= 12)
+
 class Cleaning(models.Model):
   day = models.CharField(
     max_length=8,
@@ -41,6 +44,17 @@ class Cleaning(models.Model):
 
   # class Meta:
   #   ordering = ['-date']
+
+class Painting(models.Model):
+  title = models.CharField(max_length=100)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.title
+  
+  def get_absolute_url(self):
+      return reverse("paintings_detail", kwargs={"pk": self.id})
+  
 
 
   

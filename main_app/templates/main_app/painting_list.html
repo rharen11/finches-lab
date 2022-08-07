@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/toys/toy-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>All Paintings for Rocks</h1>
+  <img src="{% static 'images/coco.png' %}" alt="A ball of string" />
+</section>
+
+<section class="card-container">
+  {% for painting in painting_list %}
+  <div class="card" style="border-color: {{ painting.color }}">
+    <div class="card-bg" style="background-color: {{ painting.color }}"></div>
+    <a href="{% url 'paintings_detail' painting.id %}">
+      <div class="card-content">
+        <h2>{{ painting.title }}</h2>
+        <p>{{ painting.color }}</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

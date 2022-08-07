@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
-from .models import Rock
+from .models import Rock, Painting
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import CleaningForm
+from django.views.generic import ListView, DetailView
 
 def home(request):
   return render(request, 'home.html')
@@ -38,3 +39,13 @@ class RockUpdate(UpdateView):
 class RockDelete(DeleteView):
   model = Rock
   success_url= '/rocks/'
+
+class PaintingCreate(CreateView):
+  model = Painting
+  fields = '__all__'
+
+class PaintingList(ListView):
+  model = Painting
+
+class PaintingDetail(DetailView):
+  model = Painting

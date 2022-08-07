@@ -44,6 +44,11 @@
       method="post" 
       class="subsection-content"
     >
+      {% comment %} {% if rock.cleaned_for_year %}
+        <p>{{ rock.type }} is Super Clean!</p>
+      {% else %}
+        <p>Clean that nasty {{ rock.type }}</p>
+      {% endif %} {% endcomment %}
       {% csrf_token %}
       {{ cleaning_form.as_p }}
       <button type="submit" class="btn submit">Add Cleaning</button>
