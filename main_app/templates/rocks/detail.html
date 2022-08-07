@@ -83,7 +83,7 @@
     </div>
     <h3>{{ rock.type }}'s Artwork</h3>
     <div class="subsection-content">
-      {% if rock.painting.count %}
+      {% if rock.paintings.count %}
         {% for painting in rock.paintings.all %}
           <div class="toy-container">
             <div 
@@ -96,9 +96,9 @@
           </div>
         {% endfor %}
       {% else %}
-        <p class="no-toys">{{rock.type}} is untouched</p>
+        <p class="no-toys">{{ rock.type }} is untouched</p>
       {% endif %}
-    {% comment %} </div>
+    </div>
     <h3>Available Paintings</h3>
     <div class="subsection-content">
       {% if paintings.count %}
@@ -111,7 +111,7 @@
             <a href="{% url 'paintings_detail' painting.id %}">
               <p>A {{ painting.color }} {{ painting.title }}</p>
             </a>
-            <form action="{% url 'assoc_painting' rock.id painting.id" %} method="post">
+            <form action="{% url 'assoc_painting' rock.id painting.id %}" method="post">
               {% csrf_token %}
               <button type="submit" class="btn submit">Decorate!</button>
             </form>
@@ -122,7 +122,7 @@
           {{rock.type}} is fully decorated! 🥳
         </p>
       {% endif %}
-    </div> {% endcomment %}
+    </div>
   </section>
 </div>
 

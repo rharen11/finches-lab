@@ -25,11 +25,11 @@ def rocks_index(request):
 def rocks_detail(request, rock_id):
   rock = Rock.objects.get(id=rock_id)
 
-  # paintings_available = Painting.objects.exclude(id__in = rock.paintings.all().values_list('id'))
+  paintings_available = Painting.objects.exclude(id__in = rock.paintings.all().values_list('id'))
 
   cleaning_form = CleaningForm()
 
-  return render(request, 'rocks/detail.html', {'rock': rock, 'cleaning_form': cleaning_form,})
+  return render(request, 'rocks/detail.html', {'rock': rock, 'cleaning_form': cleaning_form, 'paintings': paintings_available})
 
 @login_required
 def add_cleaning(request, rock_id):

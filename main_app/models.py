@@ -27,7 +27,7 @@ class Rock(models.Model):
   color = models.CharField(max_length=50)
   description = models.TextField(max_length=300)
   location = models.CharField(max_length=50)
-  painting = models.ManyToManyField(Painting)
+  paintings = models.ManyToManyField(Painting)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
